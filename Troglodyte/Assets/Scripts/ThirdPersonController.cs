@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -105,6 +106,11 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        //menu
+        public GameObject menu;
+        public MenuAction menuControls;
+        public InputAction open;
+        bool toggleMenu = false;
 
         private const float _threshold = 0.01f;
 
@@ -130,12 +136,14 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+            menuControls = new MenuAction();
         }
 
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -164,6 +172,18 @@ namespace StarterAssets
         private void LateUpdate()
         {
             CameraRotation();
+        }
+
+        private void OnEnable()
+        {
+            open = menuControls.Menu.openMenu;
+            open.Enable();
+            open.performed += opened;
+        }
+
+        private void OnDisable()
+        {
+            open.Disable();
         }
 
         private void AssignAnimationIDs()
@@ -277,6 +297,12 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
+        }
+        //opening menu
+        private void opened(InputAction.CallbackContext contex)
+        {
+            toggleMenu = !toggleMenu;
+            menu.SetActive(toggleMenu);
         }
 
         private void JumpAndGravity()

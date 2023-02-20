@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class BuildingSystem : MonoBehaviour
 {
-    bool toggleMenu = false;
-    public GameObject[] objects;
+    bool toggleMenu = false; 
+    public GameObject[] objects; 
     private GameObject pendingObject;
     public GameObject menu;
     private Vector3 pos;
@@ -47,26 +47,17 @@ public class BuildingSystem : MonoBehaviour
     void Update()
     {
 
-        
-        /*if (pendingObject != null)
-        {
-            pendingObject.transform.position = pos;
-            if (Input.GetMouseButtonDown(0))
-            {
-                placeObject();
-            }
-
-        }*/
+     
 
 
 
     }
 
-    public void placeObject()
-    {
-        pendingObject = null;
+    //public void placeObject()
+    //{
+      //  pendingObject = null;
 
-    }
+   // }
 
     private void FixedUpdate()
     {
@@ -78,11 +69,11 @@ public class BuildingSystem : MonoBehaviour
 
     }
 
-    private void selectObject(int index)
-    {
-        pendingObject = Instantiate(objects[index], pos, transform.rotation);
+   // private void selectObject(int index)
+   // {
+    //    pendingObject = Instantiate(objects[index], pos, transform.rotation);
 
-    }
+   // }
 
     private void opened(InputAction.CallbackContext contex)
     {
