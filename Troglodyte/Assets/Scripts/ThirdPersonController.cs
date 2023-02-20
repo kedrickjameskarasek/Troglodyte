@@ -162,16 +162,22 @@ namespace StarterAssets
 
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
+            if (toggleMenu == false)
+            {
+                _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+            }
         }
 
         private void LateUpdate()
         {
-            CameraRotation();
+            if (toggleMenu == false)
+            {
+                CameraRotation();
+            }
         }
 
         private void OnEnable()
