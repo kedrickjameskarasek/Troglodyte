@@ -6,9 +6,9 @@
             "id": "e1254517-7c30-45b5-acfd-91de758c66c3",
             "actions": [
                 {
-                    "name": "openMenu",
+                    "name": "place",
                     "type": "Button",
-                    "id": "87e70b9d-313b-4a1b-8940-e91d9375748c",
+                    "id": "91ba59ef-db5c-4869-a881-cca9578b3d28",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -18,12 +18,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "73300bb2-dff3-4eea-afbc-6494f3db7dab",
-                    "path": "<Keyboard>/escape",
+                    "id": "6eb521b4-4801-480a-a2bb-1f5cb9309dda",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "openMenu",
+                    "action": "place",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -246,18 +246,9 @@
             "id": "2a87dd55-a1b4-4640-bc0b-d6d5b5ef3e76",
             "actions": [
                 {
-                    "name": "Menu",
+                    "name": "place",
                     "type": "Button",
-                    "id": "f1206ef0-b6a5-4a90-9eff-a645fbdea5f3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "openMenu",
-                    "type": "Button",
-                    "id": "fa18b713-c821-4f9b-896c-91aecc1627ff",
+                    "id": "e8525061-242e-4ec0-bc10-8c9fe22c69bb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -267,23 +258,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3130ea33-b850-4af2-851c-a9f8ed32415f",
-                    "path": "",
+                    "id": "fcabf9fa-e257-47d8-bdc7-fa30dd19a1bb",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9c15ff81-3568-4073-962b-459b346f89ac",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "openMenu",
+                    "groups": "KeyboardMouse",
+                    "action": "place",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

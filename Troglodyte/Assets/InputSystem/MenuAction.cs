@@ -28,9 +28,9 @@ public partial class @MenuAction : IInputActionCollection2, IDisposable
             ""id"": ""e1254517-7c30-45b5-acfd-91de758c66c3"",
             ""actions"": [
                 {
-                    ""name"": ""openMenu"",
+                    ""name"": ""place"",
                     ""type"": ""Button"",
-                    ""id"": ""87e70b9d-313b-4a1b-8940-e91d9375748c"",
+                    ""id"": ""91ba59ef-db5c-4869-a881-cca9578b3d28"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -40,12 +40,12 @@ public partial class @MenuAction : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""73300bb2-dff3-4eea-afbc-6494f3db7dab"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""6eb521b4-4801-480a-a2bb-1f5cb9309dda"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""openMenu"",
+                    ""action"": ""place"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,7 +56,7 @@ public partial class @MenuAction : IInputActionCollection2, IDisposable
 }");
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_openMenu = m_Menu.FindAction("openMenu", throwIfNotFound: true);
+        m_Menu_place = m_Menu.FindAction("place", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -116,12 +116,12 @@ public partial class @MenuAction : IInputActionCollection2, IDisposable
     // Menu
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_openMenu;
+    private readonly InputAction m_Menu_place;
     public struct MenuActions
     {
         private @MenuAction m_Wrapper;
         public MenuActions(@MenuAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @openMenu => m_Wrapper.m_Menu_openMenu;
+        public InputAction @place => m_Wrapper.m_Menu_place;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -131,22 +131,22 @@ public partial class @MenuAction : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MenuActionsCallbackInterface != null)
             {
-                @openMenu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenMenu;
-                @openMenu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenMenu;
-                @openMenu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnOpenMenu;
+                @place.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPlace;
+                @place.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPlace;
+                @place.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPlace;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @openMenu.started += instance.OnOpenMenu;
-                @openMenu.performed += instance.OnOpenMenu;
-                @openMenu.canceled += instance.OnOpenMenu;
+                @place.started += instance.OnPlace;
+                @place.performed += instance.OnPlace;
+                @place.canceled += instance.OnPlace;
             }
         }
     }
     public MenuActions @Menu => new MenuActions(this);
     public interface IMenuActions
     {
-        void OnOpenMenu(InputAction.CallbackContext context);
+        void OnPlace(InputAction.CallbackContext context);
     }
 }
