@@ -22,7 +22,6 @@ public class BuildingSystem : MonoBehaviour
         {
             pendingObject.transform.position = pos;
         }
-        Debug.Log(Input.mousePosition.ToString());
     }
 
     private void OnEnable()
